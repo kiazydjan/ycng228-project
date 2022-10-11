@@ -9,8 +9,8 @@ from pathlib import Path
 from yahoo_fin import stock_info as si
 
 log = logging.getLogger()
-data_dir = Path('data')
-
+data_dir = Path('C:/Users/Karen/PycharmProjects/ycng228-project/.data')
+print (data_dir)
 str_now = datetime.datetime.now().strftime('%Y_%m_%d')
 list_ticker_snp_500 = si.tickers_sp500()
 
