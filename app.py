@@ -1,11 +1,22 @@
 from flask import Flask
+from src.io.process_query import validate_ticker
 
 app = Flask(__name__)
 
 
 @app.route('/', methods=['GET'])
-def hello():
-    return f'Hello dear students, This is a docker test! You should use a better route:!\nEX: get_stock_val/<ticker>\n'
+def no_ticker_provided():
+    return f'Please provide a valid SP500 ticker: \nEX: [...]/get_stock_val/<ticker>\n'
+
+
+@app.route('/get_stock_val/<ticker>', methods=['GET'])
+def fetch_stock_strategy(ticker):
+    if validate_ticker(ticker):
+        return f'{ticker} is not an a valid SP500 ticker. Please provide a valid SP500 ticker.\n'
+    else:
+        strategy = 'You provided a valid ticker'
+        return f'{strategy}\n'
+
 
 if __name__ == '__main__':
     # Used when running locally only. When deploying to Cloud Run,
