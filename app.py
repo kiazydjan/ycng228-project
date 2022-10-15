@@ -12,10 +12,10 @@ def no_ticker_provided():
 @app.route('/get_stock_val/<ticker>', methods=['GET'])
 def fetch_stock_strategy(ticker):
     if validate_ticker(ticker):
-        return f'{ticker} is not an a valid SP500 ticker. Please provide a valid SP500 ticker.\n'
-    else:
         strategy = 'You provided a valid ticker'
         return f'{strategy}\n'
+    else:
+        return f'{ticker} is not an a valid SP500 ticker. Please provide a valid SP500 ticker.\n'
 
 
 if __name__ == '__main__':
