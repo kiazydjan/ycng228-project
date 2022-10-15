@@ -21,7 +21,7 @@ WORKDIR $APP_HOME
 COPY . ./
 
 
-RUN conda env create -f scripts/environment.yml
+RUN conda env create -f Scripts/environment.yml
 SHELL ["conda", "run", "-n", "ycng228-project", "/bin/bash", "-c"]
 RUN pip install Flask gunicorn
 
