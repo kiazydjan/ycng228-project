@@ -1,15 +1,15 @@
 from flask import Flask
-from src.io.process_query import validate_ticker
+from src.io.fetch_data import validate_ticker
 
 app = Flask(__name__)
 
 
 @app.route('/', methods=['GET'])
 def no_ticker_provided():
-    return f'Please provide a valid SP500 ticker: \nEX: [...]/get_stock_val/<ticker>\n'
+    return f'Please provide a valid SP500 ticker: \nEX: [...]/stock_advice/<ticker>\n'
 
 
-@app.route('/get_stock_val/<ticker>', methods=['GET'])
+@app.route('/stock_advice/<ticker>', methods=['GET'])
 def fetch_stock_strategy(ticker):
     if validate_ticker(ticker):
         strategy = 'You provided a valid ticker'
