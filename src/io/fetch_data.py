@@ -16,5 +16,5 @@ def get_ticker_data(ticker=None, lag=None):
         if lag is None:
             df = si.get_data(ticker, index_as_date=False)
         else:
-            df = si.get_data(ticker, index_as_date=False).tail(lag)
+            df = si.get_data(ticker, index_as_date=False).tail(lag+1)
         return df
