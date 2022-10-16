@@ -1,5 +1,6 @@
 from flask import Flask
 from src.io.fetch_data import validate_ticker
+from src.logic.main import BusinessLogic
 
 app = Flask(__name__)
 
@@ -12,7 +13,8 @@ def no_ticker_provided():
 @app.route('/stock_advice/<ticker>', methods=['GET'])
 def fetch_stock_strategy(ticker):
     if validate_ticker(ticker):
-        strategy = 'You provided a valid ticker'
+        bl = BusinessLogic()
+        strategy = bl.give_stock_advice(ticker)
         return f'{strategy}\n'
     else:
         return f'{ticker} is not an a valid SP500 ticker. Please provide a valid SP500 ticker.\n'
