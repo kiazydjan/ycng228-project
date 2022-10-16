@@ -9,9 +9,12 @@ def validate_ticker(ticker):
         return False
 
 
-def get_ticker_data(ticker=None, start_date=None, end_date=None):
+def get_ticker_data(ticker=None, lag=None):
     if ticker is None:
         return f'No ticker provided to get_ticker_data function'
     else:
-        df = si.get_data(ticker, start_date, end_date, index_as_date=False)
+        if lag is None:
+            df = si.get_data(ticker, index_as_date=False)
+        else:
+            df = si.get_data(ticker, index_as_date=False).tail(lag)
         return df
