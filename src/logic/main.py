@@ -23,6 +23,6 @@ class BusinessLogic:
     def give_stock_advice(self, ticker):
         prediction = self.do_predictions_for(ticker)
         if prediction == 1:
-            return f'You should BUY {ticker} stock \n'
+            return f'You should buy {ticker} stock \n'
         else:
-            return f'You should SELL {ticker} stock \n'
+            return f'You should sell {ticker} stock \n'
