@@ -24,6 +24,6 @@ class BusinessLogic:
         prediction = self.do_predictions_for(ticker)
      #   return f'prediction value: {prediction}\n'
         if prediction == 1:
-            return f'You should buy {ticker} stock \n'
+            return f'Buy\n'
         else:
-            return f'You should sell {ticker} stock \n'
+            return f'Sell\n'
