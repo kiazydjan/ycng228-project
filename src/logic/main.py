@@ -16,7 +16,7 @@ class BusinessLogic:
 
     def do_predictions_for(self, ticker):
         model = self.get_model()
-        prediction = model.predict(create_prediction_input(get_ticker_data(ticker, 30)))
+        prediction = model.predict(create_prediction_input(get_ticker_data(ticker, 45)))
 
         return prediction
 
